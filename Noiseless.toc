@@ -1,9 +1,12 @@
-## Interface: 90205
+## Interface: 90207
+## Version: @project-version@
+
 ## Title: Noiseless
 ## Notes: Mute some annoying game sounds
 ## Author: Pingumania
-## Version: @project-version@
+
 ## SavedVariables: NoiselessDB
+
 ## X-Curse-Project-ID: 357444
 ## X-WoWI-ID: 25912
 ## X-Wago-ID: R4N2Om6L
