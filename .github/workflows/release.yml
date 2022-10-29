@@ -19,7 +19,7 @@ jobs:
           output: RECENT_CHANGES.md
 
       - name: Create Retail Package
-        uses: BigWigsMods/packager@v1
+        uses: BigWigsMods/packager@v2
         env:
           CF_API_KEY: ${{ secrets.CF_TOKEN }}
           WOWI_API_TOKEN: ${{ secrets.WOWI_TOKEN }}

@@ -1,3 +1,7 @@
+Noiseless | 10.0.0-2
+--------------------
+- Fixed libs not loading
+
 Noiseless | 10.0.0-1
 --------------------
 - ToC update for 10.0.0

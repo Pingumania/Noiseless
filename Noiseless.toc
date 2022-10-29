@@ -11,7 +11,7 @@
 ## X-WoWI-ID: 25912
 ## X-Wago-ID: R4N2Om6L
 
-#@end-non-debug@
+#@non-debug@
 # Embeds.xml
 #@end-non-debug@
 Locales.xml
