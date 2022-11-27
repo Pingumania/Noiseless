@@ -1,3 +1,8 @@
+Noiseless | 10.0.2-1
+--------------------
+- ToC update for 10.0.2
+- Fixed config spacing
+
 Noiseless | 10.0.0-2
 --------------------
 - Fixed libs not loading
