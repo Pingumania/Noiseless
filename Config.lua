@@ -69,7 +69,7 @@ local function GetOptions()
 					type = "toggle",
 					name = L[name],
 					arg = tbl,
-					width = 1.5,
+					width = 1.8,
 					set = function(info, value)
 						addon.db.profile[info[#info]] = value
 						module:ToggleMuteStatus(name, tbl)
