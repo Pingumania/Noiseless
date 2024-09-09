@@ -7,6 +7,7 @@ L["Emotes"] = true
 L["Abilities"] = true
 L["Voice Lines"] = true
 L["Interface"] = true
+L["Performance"] = true
 L["Sample"] = true
 
 L["LFGPing"] = "LFG invitation pending ping"
@@ -18,3 +19,5 @@ L["TrainEmote"] = "/train"
 L["LaughEmote"] = "/laugh"
 L["WarriorChargeShout"] = "Warrior Charge"
 L["DHFelRushShout"] = "Demon Hunter Fel Rush"
+L["FirebeeLoop"] = "Firebee sounds"
+L["These sounds are known to cause performance issues"] = true

@@ -46,6 +46,13 @@ local function GetOptions()
 				order = 5,
 				args = {},
 			},
+			performance = {
+				type = "group",
+				name = L["Performance"],
+				desc = L["These sounds are known to cause performance issues"],
+				order = 6,
+				args = {},
+			},
 		},
 	}
 

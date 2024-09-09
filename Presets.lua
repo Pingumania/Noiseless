@@ -288,4 +288,11 @@ addon.soundPresets = {
 			1067667, -- ui_groupfinderreceiveapplication_01.ogg
 		}
 	},
+	["performance"] = {
+		["FirebeeLoop"] = {
+			5609233,
+			5609235,
+			5609231
+		}
+	}
 }
