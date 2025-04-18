@@ -1,3 +1,7 @@
+Noiseless | 11.1.0-1
+--------------------
+- ToC Update for 11.1.0
+
 Noiseless | 11.0.2-1
 --------------------
 - Add preset for sounds that can cause performance problems

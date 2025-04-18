@@ -1,6 +1,6 @@
-## Interface: 110002
+## Interface: 110100
 ## Version: @project-version@
-
+## Category: Media
 ## Title: Noiseless
 ## Notes: Mute some annoying game sounds
 ## Author: Pingumania
