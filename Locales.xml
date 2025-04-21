@@ -1,3 +1,4 @@
 <Ui>
 	<Script file="Locales\enUS.lua"/>
+	<Script file="Locales\ruRU.lua"/>
 </Ui>
