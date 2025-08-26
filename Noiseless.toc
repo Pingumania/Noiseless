@@ -1,9 +1,10 @@
 ## Interface: 110200
-## Version: @project-version@
-## Category: Media
+
 ## Title: Noiseless
 ## Notes: Mute some annoying game sounds
+## Category: Media
 ## Author: Pingumania
+## Version: @project-version@
 
 ## SavedVariables: NoiselessDB
 
