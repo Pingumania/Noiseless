@@ -1,3 +1,7 @@
+Noiseless | v15
+--------------------
+- Update TOC for patch 11.2.0
+
 Noiseless | v14
 --------------------
 - Add ruRU translation (Thanks to ZamestoTV)
