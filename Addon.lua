@@ -1,6 +1,5 @@
 local _, ns = ...
 
--- the presets are grouped for the options panel, everything else wants them by name
 ns.soundFiles = {}
 for _, sounds in next, ns.soundPresets do
 	for name, fileIDs in next, sounds do
@@ -8,11 +7,6 @@ for _, sounds in next, ns.soundPresets do
 	end
 end
 
---[[
-	AceDB kept the toggles in a shared "Default" profile and stored only the ones that differed
-	from the default, so everything absent was muted. Flattening keeps that meaning, since the
-	setting's own default is true.
-]]
 function ns:OnLoad()
 	if not (NoiselessDB and NoiselessDB.profiles) then
 		return
@@ -49,7 +43,6 @@ function ns:PlaySample(name)
 		StopSound(lastSoundHandle)
 	end
 
-	-- a muted file stays silent when played, so it is unmuted for the length of the sample
 	local fileIDs = ns.soundFiles[name]
 	local fileID = fileIDs[fastrandom(1, #fileIDs)]
 	UnmuteSoundFile(fileID)

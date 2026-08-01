@@ -1,7 +1,6 @@
 local _, ns = ...
 local L = ns.L
 
--- the order the groups are presented in, which a hash of presets cannot give us
 local GROUPS = {
 	{ key = 'mounts', title = L["Mounts"] },
 	{ key = 'emotes', title = L["Emotes"] },
