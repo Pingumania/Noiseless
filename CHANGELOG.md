@@ -1,3 +1,10 @@
+### v16 - 2026-08-01
+
+* Rebuild the options panel with the game's own settings widgets
+* Update TOC for patch 12.0.7
+
+*****
+
 ### v15 - 2025-10-05
 
 * Update TOC for patch 11.2.0
