@@ -12,8 +12,10 @@
 ## X-WoWI-ID: 25912
 ## X-Wago-ID: R4N2Om6L
 
-Embeds.xml
+Libs\Huddle\Embed.xml
+
 Locales.xml
-Core.lua
+
 Presets.lua
+Addon.lua
 Config.lua

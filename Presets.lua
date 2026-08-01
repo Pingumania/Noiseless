@@ -1,5 +1,5 @@
-local ADDON_NAME, addon = ...
-addon.soundPresets = {
+local _, ns = ...
+ns.soundPresets = {
 	["mounts"] = {
 		["MooseMountLanding"] = { -- Landing sound after jumping or hitting the ground while flying
 			1023697, -- mon_footstep_quadraped_hooved_medium_dirt_01.ogg

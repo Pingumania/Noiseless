@@ -1,119 +1,62 @@
-local ADDON_NAME, addon = ...
-local module = addon:NewModule("Config")
-local L = LibStub("AceLocale-3.0"):GetLocale(ADDON_NAME)
+local _, ns = ...
+local L = ns.L
 
-local lastSoundHandle
+-- the order the groups are presented in, which a hash of presets cannot give us
+local GROUPS = {
+	{ key = 'mounts', title = L["Mounts"] },
+	{ key = 'emotes', title = L["Emotes"] },
+	{ key = 'abilities', title = L["Abilities"] },
+	{ key = 'voicelines', title = L["Voice Lines"] },
+	{ key = 'interface', title = L["Interface"] },
+	{ key = 'performance', title = L["Performance"], tooltip = L["These sounds are known to cause performance issues"] },
+}
 
-local function GetOptions()
-	local options = {
-		name = ADDON_NAME,
-		type = "group",
-		get = function(info) return addon.db.profile[info[#info]] end,
-		args = {
-			desc = {
-				type = "description",
-				name = L["Mute some annoying game sounds."].."\n\n",
-				fontSize = "medium",
-				order = 0,
-			},
-			mounts = {
-				type = "group",
-				name = L["Mounts"],
-				order = 1,
-				args = {},
-			},
-			emotes = {
-				type = "group",
-				name = L["Emotes"],
-				order = 2,
-				args = {},
-			},
-			abilities = {
-				type = "group",
-				name = L["Abilities"],
-				order = 3,
-				args = {},
-			},
-			voicelines = {
-				type = "group",
-				name = L["Voice Lines"],
-				order = 4,
-				args = {},
-			},
-			interface = {
-				type = "group",
-				name = L["Interface"],
-				order = 5,
-				args = {},
-			},
-			performance = {
-				type = "group",
-				name = L["Performance"],
-				desc = L["These sounds are known to cause performance issues"],
-				order = 6,
-				args = {},
-			},
-		},
-	}
+local function SortByTitle(a, b)
+	return a.title < b.title
+end
 
-	local count = 0
-	for group in pairs(addon.soundPresets) do
-		for name, tbl in pairs(addon.soundPresets[group]) do
-			if not options.args[group].args[name.."preview"] then
-				options.args[group].args[name.."preview"] = {
-					type = "execute",
-					name = L["Sample"],
-					width = 0.5,
-					func = function()
-						module:SoundPreview(name, tbl)
-					end,
-					order = count,
-				}
-				count = count + 1
-			end
-			if not options.args[group].args[name] then
-				options.args[group].args[name] = {
-					type = "toggle",
-					name = L[name],
-					arg = tbl,
-					width = 1.8,
-					set = function(info, value)
-						addon.db.profile[info[#info]] = value
-						module:ToggleMuteStatus(name, tbl)
-					end,
-					order = count
-				}
-				count = count + 1
-			end
-		end
+local settings = {
+	{
+		type = "description",
+		title = L["Description"],
+	},
+}
+
+for _, group in ipairs(GROUPS) do
+	local entries = {}
+
+	for name in next, ns.soundPresets[group.key] do
+		table.insert(entries, {
+			key = name,
+			type = "toggleWithButton",
+			title = L[name],
+			tooltip = L["MuteTooltip"],
+			default = true,
+			buttonText = L["Sample"],
+			buttonWidth = 100,
+			onClick = function()
+				ns:PlaySample(name)
+			end,
+		})
 	end
 
-	return options
+	table.sort(entries, SortByTitle)
+
+	table.insert(settings, {
+		type = "section",
+		title = group.title,
+		tooltip = group.tooltip,
+		expanded = true,
+		settings = entries,
+	})
 end
 
-function module:SoundPreview(name, tbl)
-	if lastSoundHandle then StopSound(lastSoundHandle) end
-	local fileID = tbl[fastrandom(1, #tbl)]
-	UnmuteSoundFile(fileID)
-	local _, soundHandle = PlaySoundFile(fileID, "Master")
-	lastSoundHandle = soundHandle
-	if addon.db.profile[name] then
-		MuteSoundFile(fileID)
-	end
+ns:RegisterSettings("NoiselessDB", settings)
+
+for name in next, ns.soundFiles do
+	ns:RegisterOptionCallback(name, function(muted)
+		ns:SetSoundMuted(name, muted)
+	end)
 end
 
-function module:ToggleMuteStatus(name, tbl)
-	for i = 1, #tbl do
-		local fileID = tbl[i]
-		if addon.db.profile[name] then
-			MuteSoundFile(fileID)
-		else
-			UnmuteSoundFile(fileID)
-		end
-	end
-end
-
-function module:OnInitialize()
-	LibStub("AceConfig-3.0"):RegisterOptionsTable(ADDON_NAME, GetOptions)
-	self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions(ADDON_NAME)
-end
+ns:RegisterSettingsSlash("/noiseless")

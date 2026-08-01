@@ -1,8 +1,6 @@
-local ADDON_NAME = ...
-local L = LibStub("AceLocale-3.0"):NewLocale(ADDON_NAME, "ruRU")
-if not L then return end
+local _, ns = ...
+local L = ns.L("ruRU")
 
-L["Mute some annoying game sounds."] = "Отключение некоторых раздражающих звуков игры."
 L["Mounts"] = "Транспорт"
 L["Emotes"] = "Эмоции"
 L["Abilities"] = "Способности"
