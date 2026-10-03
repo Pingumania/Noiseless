@@ -3,6 +3,7 @@
 ## Title: Noiseless
 ## Notes: Mute some annoying game sounds
 ## Category: Media
+## IconTexture: Interface\Icons\spell_holy_silence
 ## Author: Pingumania
 ## Version: @project-version@
 
