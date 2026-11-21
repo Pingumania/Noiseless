@@ -1,3 +1,9 @@
+### v17
+
+* Add WoW Forever support
+
+*****
+
 ### v16 - 2026-08-01
 
 * Rebuild the options panel with the game's own settings widgets

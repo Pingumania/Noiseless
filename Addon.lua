@@ -12,8 +12,7 @@ function ns:OnLoad()
 		return
 	end
 
-	local key = UnitName('player') .. ' - ' .. GetRealmName()
-	local profile = NoiselessDB.profileKeys and NoiselessDB.profileKeys[key] or 'Default'
+	local profile = NoiselessDB.profileKeys and NoiselessDB.profileKeys[ns:GetProfileKey()] or 'Default'
 	local values = NoiselessDB.profiles[profile]
 
 	local migrated = {}
